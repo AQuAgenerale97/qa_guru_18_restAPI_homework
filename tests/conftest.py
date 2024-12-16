@@ -25,17 +25,3 @@ def setup_browser(request):
 
     with allure.step("Закрыть браузер"):
         browser.quit()
-
-"""
-@pytest.fixture(scope="function", autouse=False)
-def simple_user_auth(request):
-    with allure.step("Авторизация"):
-        data = {
-                "Email": os.getenv("DEMOWEBSHOP_LOGIN"),
-                "Password": os.getenv("DEMOWEBSHOP_PASSWORD"),
-                "RememberMe": False
-        }
-        response = post_request(DEMOWEBSHOP_URL + "/login", data=data, allow_redirects=False)
-        authorization_cookie = response.cookies.get("NOPCOMMERCE.AUTH")
-        return authorization_cookie
-"""
